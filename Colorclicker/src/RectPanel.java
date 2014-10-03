@@ -16,7 +16,35 @@ public class RectPanel extends JPanel {
 		Random rand = new Random();
 		return rand.nextInt(max);
 	}
-	
+
+    public void addShape(int numshape) {
+        int rx, ry;
+        Random rand = new Random();
+        MyShape shape = null;
+        rx = rint(200);
+        ry = rint(200);
+
+        switch (numshape) {
+            case 0:
+                shape = new MyRectangle(rx, ry, rx+30, ry+30);
+                break;
+            case 1:
+                rx = rint(200);
+                ry = rint(200);
+                int rx1 = (int) Math.floor(rx+Math.cos(rint(360))*30);
+                int ry2 = (int) Math.floor(ry+Math.sin(rint(360))*30);
+                shape = new MyLine(rx,ry,rx1,ry2);
+                break;
+            case 2:
+                shape = new MyEllipse(rx,ry,rx+30,ry+30);
+                break;
+            default:
+                break;
+        }
+        shapesList.add(shape);
+        repaint();
+    }
+
 	public void addRandomShape() {
 		int rx, ry;
 		Random rand = new Random();

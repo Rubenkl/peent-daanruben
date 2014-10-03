@@ -35,6 +35,8 @@ public abstract class MyShape {
 		this.y2 = y2;
 	}
 
+    abstract boolean contains(int x, int y);
+
 	public int getX1() {
 		return x1;
 	}

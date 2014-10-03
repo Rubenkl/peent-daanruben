@@ -10,24 +10,27 @@ public class ButtonHandler implements ActionListener {
 	public void actionPerformed(ActionEvent e){
 		String cmd = e.getActionCommand();
 		
-		if (cmd == "Add") {
-			System.out.println("Add was pressed.");
-			rec.addRandomShape();
+		if (cmd == "Rectangle") {
+
+			System.out.println("Rectangle was pressed.");
+			rec.addShape(0);
 			
-		} else if (cmd == "Mod") {
-			System.out.println("Mod was pressed.");
-			rec.alterNextShape();
-		} else {
-		
+		} else if (cmd == "Line") {
+			System.out.println("Line was pressed.");
+			rec.addShape(1);
+		} else if (cmd == "Ellipse") {
+		    rec.addShape(2);
 			//todo: add code here that will be ran when buttonclick.
-			Random rand = new Random();
+			/*Random rand = new Random();
 			float r = rand.nextFloat();
 			float g = rand.nextFloat();
 			float b = rand.nextFloat();
 			Color random = new Color(r, g, b);
 			rec.ChangeColor(random);
-			rec.repaint();
-		}
+			rec.repaint();*/
+		} else {
+
+        }
 	}
 	public ButtonHandler (RectPanel rp) {
 		rec = rp;

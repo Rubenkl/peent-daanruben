@@ -19,4 +19,8 @@ public class MyRectangle extends MyShape {
 		g.draw(rect);
 	}
 
+    boolean contains(int x, int y) {
+
+    }
+
 }
