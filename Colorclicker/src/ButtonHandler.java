@@ -10,7 +10,7 @@ public class ButtonHandler implements ActionListener {
 	public void actionPerformed(ActionEvent e){
 		String cmd = e.getActionCommand();
 		
-		if (cmd == "Rectangle") {
+		if (cmd == "Rectangle" ){
 
 			System.out.println("Rectangle was pressed.");
 			rec.addShape(0);
