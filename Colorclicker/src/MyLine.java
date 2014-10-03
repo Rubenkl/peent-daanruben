@@ -22,4 +22,11 @@ public class MyLine extends MyShape {
 		g.draw(line);
 	}
 
+    boolean contains(int x, int y) {
+        if(x1 < x && x < x2 && y2 > y && y > y1) {
+            return true;
+        }
+        return false;
+    }
+
 }
