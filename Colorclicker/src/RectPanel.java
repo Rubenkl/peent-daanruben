@@ -7,6 +7,7 @@ import java.util.Random;
 import javax.swing.JPanel;
 
 
+
 public class RectPanel extends JPanel {
 	private Color color;
 	ArrayList<MyShape> shapesList = new ArrayList<MyShape>();
@@ -110,6 +111,8 @@ public class RectPanel extends JPanel {
 	public RectPanel() {
 		super();
 		this.color = Color.BLACK;
+		
+		this.addMouseListener(new MouseHandler(this));
 	}
 	
 	public void ChangeColor(Color color) {

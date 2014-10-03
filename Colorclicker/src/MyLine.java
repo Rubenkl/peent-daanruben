@@ -17,8 +17,8 @@ public class MyLine extends MyShape {
 	@Override
 	public void draw(Graphics2D g) {
 		super.draw(g);
-		Line2D.Double line = new Line2D.Double(x1, x2, y1,
-				y2);
+		Line2D.Double line = new Line2D.Double(x1, y1, x2,
+				y2); // was originaal x1, x2, y1, y2
 		g.draw(line);
 	}
 
