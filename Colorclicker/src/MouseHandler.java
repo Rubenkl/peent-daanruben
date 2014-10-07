@@ -9,8 +9,6 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 	Point pstart = null;
 	
     public void mousePressed(MouseEvent e) {
-        System.out.println("Mouse pressed (# of clicks: "
-                + e.getClickCount() + ")");
         pstart = e.getPoint();
     }
 

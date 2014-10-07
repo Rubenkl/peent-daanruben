@@ -56,6 +56,13 @@ public class DrawingPanel extends JPanel {
 				switch(shape.type) {
 					case "Rectangle":
 						newshape = new MyRectangle(shapeX1, shapeY1, shapeX2, shapeY2);
+						break;
+					case "Line":
+						newshape = new MyLine(shapeX1, shapeY1, shapeX2, shapeY2);
+						break;
+					case "Ellipse":
+						newshape = new MyEllipse(shapeX1, shapeY1, shapeX2, shapeY2);
+						break;
 					default:
 						break;
 				}
