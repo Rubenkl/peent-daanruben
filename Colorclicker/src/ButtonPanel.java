@@ -18,6 +18,10 @@ public class ButtonPanel extends JPanel {
 		this.add(ellipse);
 		ellipse.addActionListener(new ButtonHandler(rp));
 
+		JToggleButton select = new JToggleButton("Select");
+		this.add(select);
+		select.addActionListener(new ButtonHandler(rp));
+		
         JButton delete = new JButton("Delete");
         this.add(delete);
         delete.addActionListener(new ButtonHandler(rp));
