@@ -26,6 +26,9 @@ public class ButtonPanel extends JPanel {
         this.add(delete);
         delete.addActionListener(new ButtonHandler(rp));
 
+        JButton speak = new JButton("Speak");
+        this.add(speak);
+        speak.addActionListener(new ButtonHandler(rp));
 
 	}
 }

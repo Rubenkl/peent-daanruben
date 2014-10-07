@@ -40,8 +40,10 @@ public class ButtonHandler implements ActionListener {
 			rec.setCommand("Delete");
 			
 			//rec.DeleteShape();
-		} else {
+		} else if (cmd == "Speak") {
 
+        } else {
+        	
         }
 	}
 	public ButtonHandler (DrawingPanel rp) {
