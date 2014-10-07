@@ -6,7 +6,6 @@ import javax.swing.*;
 
 public class ButtonPanel extends JPanel {
 	public ButtonPanel(DrawingPanel rp) {
-		Boolean speaking;
 		
 		super();
 		JToggleButton rec = new JToggleButton("Rectangle");
@@ -31,16 +30,19 @@ public class ButtonPanel extends JPanel {
         this.add(delete);
         delete.addActionListener(new ButtonHandler(rp));
 
-        JButton speak = new JButton("Speak");
+        final JButton speak = new JButton("Speak");
         this.add(speak);
         speak.addActionListener(new ActionListener() {
+        	Boolean speaking = false;
         	@Override
         	public void actionPerformed(ActionEvent e){
         		if (speaking) {
         			speaking = false;
         			//stop recording
+        			speak.setText("Speak");
         		} else {
         			speaking = true;
+        			speak.setText("Stop..");
         			//start recording
         		}
         	}
