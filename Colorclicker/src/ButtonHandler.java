@@ -37,7 +37,7 @@ public class ButtonHandler implements ActionListener {
 
 		} else if (cmd == "Delete") {
 			System.out.println("Delete was pressed");
-			rec.DeleteShape();
+			rec.setCommand("Delete");
 		} else {
 
         }

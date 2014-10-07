@@ -67,6 +67,9 @@ public class DrawingPanel extends JPanel {
 						break;
 				}
 				shapesList.set(getSelectedShape(start), newshape);
+			case "Delete":
+				shapesList.remove(getSelectedShape(start));
+				break;
 	        default:
 	            break;
 		}
