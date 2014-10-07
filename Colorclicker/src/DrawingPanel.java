@@ -15,6 +15,7 @@ public class DrawingPanel extends JPanel {
 	int alterindex = 0;
 	
 	public int rint(int max) {
+		// Deze functie kiest een random integer tussen 0 en max
 		Random rand = new Random();
 		return rand.nextInt(max);
 	}
@@ -107,6 +108,15 @@ public class DrawingPanel extends JPanel {
 		shapesList.set(alterindex, newshape);
 		repaint();
 		alterindex++;
+	}
+	
+	public void DeleteShape() {
+		// Deletes last shape
+		if (shapesList.size() != 0) {
+			System.out.println(shapesList.size() - 1);
+			shapesList.remove(shapesList.size() -1);
+			repaint();
+		}
 	}
 	
 	public DrawingPanel() {

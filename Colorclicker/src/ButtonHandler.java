@@ -19,6 +19,7 @@ public class ButtonHandler implements ActionListener {
 			System.out.println("Line was pressed.");
 			rec.addShape(1);
 		} else if (cmd == "Ellipse") {
+			System.out.println("Ellipse was pressed.");
 		    rec.addShape(2);
 			//todo: add code here that will be ran when buttonclick.
 			/*Random rand = new Random();
@@ -28,6 +29,9 @@ public class ButtonHandler implements ActionListener {
 			Color random = new Color(r, g, b);
 			rec.ChangeColor(random);
 			rec.repaint();*/
+		} else if (cmd == "Delete") {
+			System.out.println("Delete was pressed");
+			rec.DeleteShape();
 		} else {
 
         }
