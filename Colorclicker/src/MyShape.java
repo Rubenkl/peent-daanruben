@@ -7,6 +7,7 @@ public abstract class MyShape {
 	protected int x1, y1, x2, y2;
 	protected int width, height, startx, starty;
 	protected String type;
+	protected boolean selected = false;
 
 	public MyShape() {
 		this(0, 0, 0, 0);

@@ -52,7 +52,6 @@ public class DrawingPanel extends JPanel {
 				int shapeX2 = shape.getX2() + (end.x - start.x);
 				int shapeY1 = shape.getY1() + (end.y - start.y);
 				int shapeY2 = shape.getY2() + (end.y - start.y);
-				System.out.println("shapetype" + shape.type);
 				switch(shape.type) {
 					case "Rectangle":
 						newshape = new MyRectangle(shapeX1, shapeY1, shapeX2, shapeY2);
@@ -66,7 +65,15 @@ public class DrawingPanel extends JPanel {
 					default:
 						break;
 				}
+				if (getSelectedShape(start) != -1) { // returnt -1 als hij niet gevonden kan worden.
 				shapesList.set(getSelectedShape(start), newshape);
+				}
+				break;
+			case "Delete":
+				if (getSelectedShape(start) != -1) {
+				shapesList.remove(getSelectedShape(start));
+				}
+				break;
 	        default:
 	            break;
 		}
@@ -86,7 +93,6 @@ public class DrawingPanel extends JPanel {
 			foundint = i;
 			break;
 		}
-			System.out.println(foundint);
 			return foundint;
 	}
 	
