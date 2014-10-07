@@ -52,6 +52,7 @@ public class DrawingPanel extends JPanel {
 				int shapeX2 = shape.getX2() + (end.x - start.x);
 				int shapeY1 = shape.getY1() + (end.y - start.y);
 				int shapeY2 = shape.getY2() + (end.y - start.y);
+				System.out.println("shapetype" + shape.type);
 				switch(shape.type) {
 					case "Rectangle":
 						newshape = new MyRectangle(shapeX1, shapeY1, shapeX2, shapeY2);
@@ -73,12 +74,12 @@ public class DrawingPanel extends JPanel {
 			int maxx = Math.max(((MyShape)shapesList.get(i)).getX1(), ((MyShape)shapesList.get(i)).getX2());
 			int miny = Math.min(((MyShape)shapesList.get(i)).getY1(), ((MyShape)shapesList.get(i)).getY2());
 			int maxy = Math.max(((MyShape)shapesList.get(i)).getY1(), ((MyShape)shapesList.get(i)).getY2());
-			if (!(mousepos.x > maxx || mousepos.x < minx || mousepos.y > maxy || mousepos.y < miny)) {
-				foundint = i;
-				break;
-			}
-				
+			if (mousepos.x > maxx || mousepos.x < minx || mousepos.y > maxy || mousepos.y < miny)
+				continue;
+			foundint = i;
+			break;
 		}
+			System.out.println(foundint);
 			return foundint;
 	}
 	

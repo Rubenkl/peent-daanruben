@@ -5,7 +5,7 @@ public class MyLine extends MyShape {
 	
 	public MyLine() {
 		super();
-		type = "Line";
+		this.type = "Line";
 	}
 	
 	public MyLine(int x1, int y1, int x2, int y2) {
@@ -13,6 +13,7 @@ public class MyLine extends MyShape {
 		this.x2 = x2;
 		this.y1 = y1;
 		this.y2 = y2;
+		this.type = "Line";
 	}
 	
 	@Override
