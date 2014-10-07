@@ -6,7 +6,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class MouseHandler implements MouseListener {
-	private RectPanel rec;
+	private DrawingPanel rec;
 	
     public void mousePressed(MouseEvent e) {
         System.out.println("Mouse pressed (# of clicks: "
@@ -37,7 +37,7 @@ public class MouseHandler implements MouseListener {
 		
 	}
 	
-	public MouseHandler (RectPanel rp) {
+	public MouseHandler (DrawingPanel rp) {
 		rec = rp;
 	}
 }

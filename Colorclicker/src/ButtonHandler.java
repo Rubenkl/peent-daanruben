@@ -5,7 +5,7 @@ import java.util.Random;
 
 
 public class ButtonHandler implements ActionListener {
-	private RectPanel rec;
+	private DrawingPanel rec;
 	
 	public void actionPerformed(ActionEvent e){
 		String cmd = e.getActionCommand();
@@ -32,7 +32,7 @@ public class ButtonHandler implements ActionListener {
 
         }
 	}
-	public ButtonHandler (RectPanel rp) {
+	public ButtonHandler (DrawingPanel rp) {
 		rec = rp;
 	}
 

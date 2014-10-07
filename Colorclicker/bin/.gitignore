@@ -1,11 +1,2 @@
-/ButtonHandler.class
-/ButtonPanel.class
-/Main$1.class
-/Main.class
-/MyEllipse.class
-/MyLine.class
-/MyRectangle.class
-/MyShape.class
-/RectPanel.class
-/Window.class
-/MouseHandler.class
+/DrawPanel.class
+/DrawingPanel.class

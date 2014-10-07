@@ -2,7 +2,7 @@ import javax.swing.*;
 
 
 public class ButtonPanel extends JPanel {
-	public ButtonPanel(RectPanel rp) {
+	public ButtonPanel(DrawingPanel rp) {
 		super();
 		JButton b = new JButton("Rectangle");
 		this.add(b);

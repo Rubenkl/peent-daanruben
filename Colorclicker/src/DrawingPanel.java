@@ -1,6 +1,7 @@
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -8,7 +9,7 @@ import javax.swing.JPanel;
 
 
 
-public class RectPanel extends JPanel {
+public class DrawingPanel extends JPanel {
 	private Color color;
 	ArrayList<MyShape> shapesList = new ArrayList<MyShape>();
 	int alterindex = 0;
@@ -108,13 +109,11 @@ public class RectPanel extends JPanel {
 		alterindex++;
 	}
 	
-	public RectPanel() {
+	public DrawingPanel() {
 		super();
-		this.color = Color.BLACK;
-		
 		this.addMouseListener(new MouseHandler(this));
 	}
-	
+
 	public void ChangeColor(Color color) {
 		this.color = color;
 	}

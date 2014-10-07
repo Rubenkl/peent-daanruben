@@ -14,7 +14,7 @@ public class Window extends JFrame {
 		super.getContentPane().setLayout(new BorderLayout());;
 		
 		//todo: add elements to the content pane
-		RectPanel rp = new RectPanel();
+		DrawingPanel rp = new DrawingPanel();
 		ButtonPanel bp = new ButtonPanel(rp);
 		
 		//place panel in center
