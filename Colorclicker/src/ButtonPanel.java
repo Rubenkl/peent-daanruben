@@ -1,8 +1,13 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.*;
 
 
 public class ButtonPanel extends JPanel {
 	public ButtonPanel(DrawingPanel rp) {
+		Boolean speaking;
+		
 		super();
 		JToggleButton rec = new JToggleButton("Rectangle");
 		this.add(rec);
@@ -28,7 +33,19 @@ public class ButtonPanel extends JPanel {
 
         JButton speak = new JButton("Speak");
         this.add(speak);
-        speak.addActionListener(new ButtonHandler(rp));
+        speak.addActionListener(new ActionListener() {
+        	@Override
+        	public void actionPerformed(ActionEvent e){
+        		if (speaking) {
+        			speaking = false;
+        			//stop recording
+        		} else {
+        			speaking = true;
+        			//start recording
+        		}
+        	}
+        	
+        });
 
 	}
 }

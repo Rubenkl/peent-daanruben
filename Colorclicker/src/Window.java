@@ -12,8 +12,8 @@ public class Window extends JFrame {
 		Toolkit tk = Toolkit.getDefaultToolkit();  
 		int xSize = ((int) tk.getScreenSize().getWidth());  
 		int ySize = ((int) tk.getScreenSize().getHeight());
-		//super.setSize(new Dimension(420, 350));
-		super.setSize(new Dimension(xSize, ySize));
+		super.setSize(new Dimension(500, 350));
+		//super.setSize(new Dimension(xSize, ySize));
 		super.setLocationRelativeTo(null);
 		super.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		super.getContentPane().setLayout(new BorderLayout());;
