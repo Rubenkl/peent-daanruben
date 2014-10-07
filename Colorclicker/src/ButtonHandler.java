@@ -6,6 +6,7 @@ import java.util.Random;
 
 public class ButtonHandler implements ActionListener {
 	private DrawingPanel rec;
+	String command = "Line";
 	
 	public void actionPerformed(ActionEvent e){
 		String cmd = e.getActionCommand();
@@ -13,14 +14,15 @@ public class ButtonHandler implements ActionListener {
 		if (cmd == "Rectangle" ){
 
 			System.out.println("Rectangle was pressed.");
-			rec.addShape(0);
 			
+			rec.setcommand("Rectangle");
 		} else if (cmd == "Line") {
 			System.out.println("Line was pressed.");
-			rec.addShape(1);
+			rec.setcommand("Line");
+			
 		} else if (cmd == "Ellipse") {
 			System.out.println("Ellipse was pressed.");
-		    rec.addShape(2);
+		    
 			//todo: add code here that will be ran when buttonclick.
 			/*Random rand = new Random();
 			float r = rand.nextFloat();
@@ -29,6 +31,7 @@ public class ButtonHandler implements ActionListener {
 			Color random = new Color(r, g, b);
 			rec.ChangeColor(random);
 			rec.repaint();*/
+			rec.setcommand("Ellipse");
 		} else if (cmd == "Delete") {
 			System.out.println("Delete was pressed");
 			rec.DeleteShape();

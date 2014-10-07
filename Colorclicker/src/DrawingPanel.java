@@ -1,7 +1,7 @@
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.event.MouseEvent;
+import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -13,11 +13,40 @@ public class DrawingPanel extends JPanel {
 	private Color color;
 	ArrayList<MyShape> shapesList = new ArrayList<MyShape>();
 	int alterindex = 0;
+	String command;
 	
+	public void setcommand(String cmd) {
+		command = cmd;
+	}
 	public int rint(int max) {
 		// Deze functie kiest een random integer tussen 0 en max
 		Random rand = new Random();
 		return rand.nextInt(max);
+	}
+	
+	public void addmouseShape(Point start, Point end) {
+		MyShape shape = null;
+		switch(command) {
+			case "Rectangle":
+	            shape = new MyRectangle(start.x, start.y, end.x, end.y);
+	            break;
+			case "Line":
+				shape = new MyLine(start.x, start.y, end.x, end.y);
+				break;
+			case "Ellipse":
+				shape = new MyEllipse(start.x, start.y, end.x, end.y);
+				break;
+	        default:
+	            break;
+		}
+		shapesList.add(shape);
+		repaint();
+	}
+	
+	public void addLine(Point start, Point end) {
+		MyShape line = new MyLine(start.x, start.y, end.x, end.y);
+		shapesList.add(line);
+		repaint();
 	}
 
     public void addShape(int numshape) {
@@ -121,7 +150,9 @@ public class DrawingPanel extends JPanel {
 	
 	public DrawingPanel() {
 		super();
-		this.addMouseListener(new MouseHandler(this));
+		MouseHandler mh = new MouseHandler(this);
+		this.addMouseListener(mh);
+		this.addMouseMotionListener(mh);
 	}
 
 	public void ChangeColor(Color color) {
