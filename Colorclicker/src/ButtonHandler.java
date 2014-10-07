@@ -32,6 +32,9 @@ public class ButtonHandler implements ActionListener {
 			rec.ChangeColor(random);
 			rec.repaint();*/
 			rec.setcommand("Ellipse");
+		} else if (cmd == "Select") {
+			
+		}
 		} else if (cmd == "Delete") {
 			System.out.println("Delete was pressed");
 			rec.DeleteShape();
