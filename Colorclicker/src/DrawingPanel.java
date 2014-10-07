@@ -14,10 +14,16 @@ public class DrawingPanel extends JPanel {
 	ArrayList<MyShape> shapesList = new ArrayList<MyShape>();
 	int alterindex = 0;
 	String command;
+	String action;
 	
-	public void setcommand(String cmd) {
+	public void setCommand(String cmd) {
 		command = cmd;
 	}
+	
+	public String getCommand() {
+		return command;
+	}
+	
 	public int rint(int max) {
 		// Deze functie kiest een random integer tussen 0 en max
 		Random rand = new Random();
@@ -29,18 +35,51 @@ public class DrawingPanel extends JPanel {
 		switch(command) {
 			case "Rectangle":
 	            shape = new MyRectangle(start.x, start.y, end.x, end.y);
+	            shapesList.add(shape);
 	            break;
 			case "Line":
 				shape = new MyLine(start.x, start.y, end.x, end.y);
+				shapesList.add(shape);
 				break;
 			case "Ellipse":
 				shape = new MyEllipse(start.x, start.y, end.x, end.y);
+				shapesList.add(shape);
 				break;
+			case "Select":
+				shape = shapesList.get(getSelectedShape(start));
+				MyShape newshape = null;
+				int shapeX1 = shape.getX1() + (end.x - start.x);
+				int shapeX2 = shape.getX2() + (end.x - start.x);
+				int shapeY1 = shape.getY1() + (end.y - start.y);
+				int shapeY2 = shape.getY2() + (end.y - start.y);
+				switch(shape.type) {
+					case "Rectangle":
+						newshape = new MyRectangle(shapeX1, shapeY1, shapeX2, shapeY2);
+					default:
+						break;
+				}
+				shapesList.set(getSelectedShape(start), newshape);
 	        default:
 	            break;
 		}
-		shapesList.add(shape);
 		repaint();
+	}
+	
+	public int getSelectedShape(Point mousepos) {
+		int foundint = -1;
+		for (int i = shapesList.size() - 1; i>=0; i--)
+		{
+			int minx = Math.min(((MyShape)shapesList.get(i)).getX1(), ((MyShape)shapesList.get(i)).getX2());
+			int maxx = Math.max(((MyShape)shapesList.get(i)).getX1(), ((MyShape)shapesList.get(i)).getX2());
+			int miny = Math.min(((MyShape)shapesList.get(i)).getY1(), ((MyShape)shapesList.get(i)).getY2());
+			int maxy = Math.max(((MyShape)shapesList.get(i)).getY1(), ((MyShape)shapesList.get(i)).getY2());
+			if (!(mousepos.x > maxx || mousepos.x < minx || mousepos.y > maxy || mousepos.y < miny)) {
+				foundint = i;
+				break;
+			}
+				
+		}
+			return foundint;
 	}
 	
 	public void addLine(Point start, Point end) {
@@ -73,7 +112,7 @@ public class DrawingPanel extends JPanel {
             default:
                 break;
         }
-        shapesList.add(shape);
+        
         repaint();
     }
 

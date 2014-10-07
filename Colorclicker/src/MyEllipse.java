@@ -4,6 +4,7 @@ import java.awt.geom.Ellipse2D;
 public class MyEllipse extends MyShape{
 	public MyEllipse() {
 		super();
+		type = "Ellipse";
 	}
 	
 	public MyEllipse(int x1, int y1, int x2, int y2) {

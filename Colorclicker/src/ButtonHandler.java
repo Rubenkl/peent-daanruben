@@ -15,10 +15,10 @@ public class ButtonHandler implements ActionListener {
 
 			System.out.println("Rectangle was pressed.");
 			
-			rec.setcommand("Rectangle");
+			rec.setCommand("Rectangle");
 		} else if (cmd == "Line") {
 			System.out.println("Line was pressed.");
-			rec.setcommand("Line");
+			rec.setCommand("Line");
 			
 		} else if (cmd == "Ellipse") {
 			System.out.println("Ellipse was pressed.");
@@ -31,9 +31,9 @@ public class ButtonHandler implements ActionListener {
 			Color random = new Color(r, g, b);
 			rec.ChangeColor(random);
 			rec.repaint();*/
-			rec.setcommand("Ellipse");
+			rec.setCommand("Ellipse");
 		} else if (cmd == "Select") {
-			
+			rec.setCommand("Select");
 
 		} else if (cmd == "Delete") {
 			System.out.println("Delete was pressed");

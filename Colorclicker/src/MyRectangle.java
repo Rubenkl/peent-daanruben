@@ -5,6 +5,7 @@ public class MyRectangle extends MyShape {
 
 	public MyRectangle() {
 		super();
+		type = "Rectangle";
 	}
 
 	public MyRectangle(int x1, int y1, int x2, int y2) {
