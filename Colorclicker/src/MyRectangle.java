@@ -5,10 +5,12 @@ public class MyRectangle extends MyShape {
 
 	public MyRectangle() {
 		super();
+		this.type = "Rectangle";
 	}
 
 	public MyRectangle(int x1, int y1, int x2, int y2) {
 		super(x1, y1, x2, y2);
+		this.type = "Rectangle";
 	}
 
 	@Override
