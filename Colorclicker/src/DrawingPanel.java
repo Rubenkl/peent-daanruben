@@ -15,6 +15,12 @@ public class DrawingPanel extends JPanel {
 	int alterindex = 0;
 	String command;
 	String action;
+    RightPanel rightPanel;
+    int rectangleCount = 0;
+    int lineCount = 0;
+    int ellipseCount = 0;
+
+
 	
 	public void setCommand(String cmd) {
 		command = cmd;
@@ -36,14 +42,20 @@ public class DrawingPanel extends JPanel {
 			case "Rectangle":
 	            shape = new MyRectangle(start.x, start.y, end.x, end.y);
 	            shapesList.add(shape);
+                rectangleCount++;
+                rightPanel.addToShapeList("Rectangle " + rectangleCount);
 	            break;
 			case "Line":
 				shape = new MyLine(start.x, start.y, end.x, end.y);
 				shapesList.add(shape);
+                lineCount++;
+                rightPanel.addToShapeList("Line " + lineCount);
 				break;
 			case "Ellipse":
 				shape = new MyEllipse(start.x, start.y, end.x, end.y);
 				shapesList.add(shape);
+                ellipseCount++;
+                rightPanel.addToShapeList("Ellipse " + ellipseCount);
 				break;
 			case "Select":
 				shape = shapesList.get(getSelectedShape(start));
@@ -208,7 +220,12 @@ public class DrawingPanel extends JPanel {
 	public void ChangeColor(Color color) {
 		this.color = color;
 	}
-	
+
+    public void setRightPanel(RightPanel rp){
+        rightPanel = rp;
+    }
+
+
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
