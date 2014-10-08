@@ -107,6 +107,7 @@ public class DrawingPanel extends JPanel {
 				if (getSelectedShape(start) != -1) { // als het -1 is heeft hij niks gevonden.
 					shapesList.set(getSelectedShape(start), newshape);
 				}
+				break;
 			case "Delete":
 				if (getSelectedShape(start) != -1) {
 					shapesList.remove(getSelectedShape(start));
