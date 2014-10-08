@@ -90,6 +90,7 @@ public class DrawingPanel extends JPanel {
 				int shapeX2 = shape.getX2() + (end.x - start.x);
 				int shapeY1 = shape.getY1() + (end.y - start.y);
 				int shapeY2 = shape.getY2() + (end.y - start.y);
+				
 				System.out.println("shapetype" + shape.type);
 				switch(shape.type) {
 					case "Rectangle":

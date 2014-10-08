@@ -53,12 +53,13 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		// TODO Auto-generated method stub
-		//Point pend = e.getPoint();
-		//rec.addLine(pstart, pend);
-		if (!(rec.getCommand() == "Select")) {
+
+		
+		
+		//if (!(rec.getCommand() == "Select")) {
 			Point pend = e.getPoint();
 			rec.addmouseShape(pstart, pend, newindex);
-		}
+		//}
 	}
 
 	@Override
