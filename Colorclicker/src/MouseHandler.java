@@ -7,9 +7,13 @@ import java.awt.event.MouseMotionListener;
 public class MouseHandler implements MouseListener, MouseMotionListener {
 	private DrawingPanel rec;
 	Point pstart = null;
+	int newindex;
 	
     public void mousePressed(MouseEvent e) {
         pstart = e.getPoint();
+        
+        rec.addmouseShape(pstart, pstart, -1);
+        newindex = rec.getLastShapeIndex();
     }
 
 	@Override
@@ -35,8 +39,8 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		
-		Point pend = e.getPoint();
-		rec.addmouseShape(pstart, pend);
+			Point pend = e.getPoint();
+			rec.addmouseShape(pstart, pend, newindex);
 		
 		
 	}
@@ -51,8 +55,10 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 		// TODO Auto-generated method stub
 		//Point pend = e.getPoint();
 		//rec.addLine(pstart, pend);
-		
-		
+		if (!(rec.getCommand() == "Select")) {
+			Point pend = e.getPoint();
+			rec.addmouseShape(pstart, pend, newindex);
+		}
 	}
 
 	@Override

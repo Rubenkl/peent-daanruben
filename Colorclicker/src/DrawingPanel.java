@@ -13,14 +13,19 @@ public class DrawingPanel extends JPanel {
 	private Color color;
 	ArrayList<MyShape> shapesList = new ArrayList<MyShape>();
 	int alterindex = 0;
+	int lastshapeindex;
 	String command;
 	String action;
     RightPanel rightPanel;
     int rectangleCount = 0;
     int lineCount = 0;
     int ellipseCount = 0;
+    
 
-
+    public int getLastShapeIndex() {
+    	return shapesList.size() -1;
+    	
+    }
 	
 	public void setCommand(String cmd) {
 		command = cmd;
@@ -36,29 +41,50 @@ public class DrawingPanel extends JPanel {
 		return rand.nextInt(max);
 	}
 	
-	public void addmouseShape(Point start, Point end) {
+	public void addmouseShape(Point start, Point end, int index) {
+		boolean newww;
+		if (index == -1) {
+			newww = true;
+		} else {
+			newww = false;
+		}
 		MyShape shape = null;
 		switch(command) {
 			case "Rectangle":
 	            shape = new MyRectangle(start.x, start.y, end.x, end.y);
-	            shapesList.add(shape);
-                rectangleCount++;
-                rightPanel.addToShapeList("Rectangle " + rectangleCount);
+	            if (newww) {
+	            	rectangleCount++;
+	                rightPanel.addToShapeList("Rectangle " + rectangleCount);
+	                shapesList.add(shape);
+	            } else {
+	            	shapesList.set(index, shape);
+	            }
 	            break;
 			case "Line":
 				shape = new MyLine(start.x, start.y, end.x, end.y);
-				shapesList.add(shape);
-                lineCount++;
-                rightPanel.addToShapeList("Line " + lineCount);
+				if (newww) {
+					lineCount++;
+	                rightPanel.addToShapeList("Line " + lineCount);
+	                shapesList.add(shape);
+	            } else {
+	            	shapesList.set(index, shape);
+	            }
+                
 				break;
 			case "Ellipse":
 				shape = new MyEllipse(start.x, start.y, end.x, end.y);
-				shapesList.add(shape);
-                ellipseCount++;
-                rightPanel.addToShapeList("Ellipse " + ellipseCount);
+				if (newww) {
+					ellipseCount++;
+	                rightPanel.addToShapeList("Ellipse " + ellipseCount);
+	                shapesList.add(shape);
+	            } else {
+	            	shapesList.set(index, shape);
+	            }
 				break;
 			case "Select":
+				
 				shape = shapesList.get(getSelectedShape(start));
+				
 				MyShape newshape = null;
 				int shapeX1 = shape.getX1() + (end.x - start.x);
 				int shapeX2 = shape.getX2() + (end.x - start.x);
@@ -78,9 +104,13 @@ public class DrawingPanel extends JPanel {
 					default:
 						break;
 				}
-				shapesList.set(getSelectedShape(start), newshape);
+				if (getSelectedShape(start) != -1) { // als het -1 is heeft hij niks gevonden.
+					shapesList.set(getSelectedShape(start), newshape);
+				}
 			case "Delete":
-				shapesList.remove(getSelectedShape(start));
+				if (getSelectedShape(start) != -1) {
+					shapesList.remove(getSelectedShape(start));
+				}
 				break;
 	        default:
 	            break;
