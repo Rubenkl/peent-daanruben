@@ -83,7 +83,7 @@ public class DrawingPanel extends JPanel {
 				break;
 			case "Select":
 				
-				shape = shapesList.get(getSelectedShape(start));
+				shape = shapesList.get(getSelectedShape(end));
 				
 				MyShape newshape = null;
 				int shapeX1 = shape.getX1() + (end.x - start.x);
@@ -105,13 +105,13 @@ public class DrawingPanel extends JPanel {
 					default:
 						break;
 				}
-				if (getSelectedShape(start) != -1) { // als het -1 is heeft hij niks gevonden.
-					shapesList.set(getSelectedShape(start), newshape);
+				if (getSelectedShape(end) != -1) { // als het -1 is heeft hij niks gevonden.
+					shapesList.set(getSelectedShape(end), newshape);
 				}
 				break;
 			case "Delete":
-				if (getSelectedShape(start) != -1) {
-					shapesList.remove(getSelectedShape(start));
+				if (getSelectedShape(end) != -1) {
+					shapesList.remove(getSelectedShape(end));
 				}
 				break;
 	        default:

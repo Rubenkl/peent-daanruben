@@ -56,10 +56,10 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
 
 		
 		
-		//if (!(rec.getCommand() == "Select")) {
+		if (!(rec.getCommand() == "Select")) {
 			Point pend = e.getPoint();
 			rec.addmouseShape(pstart, pend, newindex);
-		//}
+		}
 	}
 
 	@Override
