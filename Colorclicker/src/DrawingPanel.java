@@ -17,9 +17,6 @@ public class DrawingPanel extends JPanel {
 	String command;
 	String action;
     RightPanel rightPanel;
-    int rectangleCount = 0;
-    int lineCount = 0;
-    int ellipseCount = 0;
     
 
     public int getLastShapeIndex() {
@@ -53,8 +50,7 @@ public class DrawingPanel extends JPanel {
 			case "Rectangle":
 	            shape = new MyRectangle(start.x, start.y, end.x, end.y);
 	            if (newww) {
-	            	rectangleCount++;
-	                rightPanel.addToShapeList("Rectangle " + rectangleCount);
+	                rightPanel.addToShapeList(shape);
 	                shapesList.add(shape);
 	            } else {
 	            	shapesList.set(index, shape);
@@ -63,8 +59,7 @@ public class DrawingPanel extends JPanel {
 			case "Line":
 				shape = new MyLine(start.x, start.y, end.x, end.y);
 				if (newww) {
-					lineCount++;
-	                rightPanel.addToShapeList("Line " + lineCount);
+	                rightPanel.addToShapeList(shape);
 	                shapesList.add(shape);
 	            } else {
 	            	shapesList.set(index, shape);
@@ -74,8 +69,7 @@ public class DrawingPanel extends JPanel {
 			case "Ellipse":
 				shape = new MyEllipse(start.x, start.y, end.x, end.y);
 				if (newww) {
-					ellipseCount++;
-	                rightPanel.addToShapeList("Ellipse " + ellipseCount);
+	                rightPanel.addToShapeList(shape);
 	                shapesList.add(shape);
 	            } else {
 	            	shapesList.set(index, shape);

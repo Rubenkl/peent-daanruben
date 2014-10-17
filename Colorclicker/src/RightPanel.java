@@ -1,10 +1,12 @@
 import javax.swing.*;
+
 import java.awt.*;
 
 /**
  * Created by Daan on 8-10-2014.
  */
 public class RightPanel extends JPanel {
+	int rectanglecount = 0, linecount = 0, ellipsecount = 0;
 
     DefaultListModel listModel = new DefaultListModel();
     JList shapeList = new JList(listModel);
@@ -20,8 +22,26 @@ public class RightPanel extends JPanel {
 
     }
 
-    public void addToShapeList(String input) {
-        listModel.addElement(input);
+    public void addToShapeList(MyShape shape) {
+    	int currcount;
+		switch(shape.type) {
+			case "Rectangle":
+				rectanglecount++;
+				currcount = rectanglecount;
+				break;
+			case "Line":
+				linecount++;
+				currcount = linecount;
+				break;
+			case "Ellipse":
+				ellipsecount++;
+				currcount = ellipsecount;
+				break;
+			default:
+				currcount = 0;
+				break;
+		}
+        listModel.addElement(shape.type + " " + currcount);
     }
 
 }
