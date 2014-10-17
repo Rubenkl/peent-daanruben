@@ -18,7 +18,12 @@ public class MyRectangle extends MyShape {
 		super.draw(g);
 		Rectangle2D.Double rect = new Rectangle2D.Double(startx, starty, width,
 				height);
+		// zelf toegevoegd:
+		g.setColor(fillcolor);
+		g.fill(rect);
+		g.setStroke(strokethickness);
 		g.draw(rect);
+		
 	}
 
     boolean contains(int x, int y) {

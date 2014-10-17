@@ -21,6 +21,9 @@ public class MyLine extends MyShape {
 		super.draw(g);
 		Line2D.Double line = new Line2D.Double(x1, y1, x2,
 				y2); // was originaal x1, x2, y1, y2
+		g.setColor(fillcolor);
+		g.fill(line);
+		g.setStroke(strokethickness);
 		g.draw(line);
 	}
 

@@ -1,15 +1,23 @@
 import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.GradientPaint;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.awt.geom.Ellipse2D;
 
 public abstract class MyShape {
 
+	protected int identifier = 0;
 	protected int x1, y1, x2, y2;
 	protected int width, height, startx, starty;
+	protected BasicStroke strokethickness = new BasicStroke(3);
 	protected String type;
+	protected boolean selected = false;
+	protected Color fillcolor = Color.white, strokecolor = Color.black;
 
 	public MyShape() {
 		this(0, 0, 0, 0);
+		identifier++;
 	}
 
 	public MyShape(int x1, int y1, int x2, int y2) {
@@ -17,6 +25,8 @@ public abstract class MyShape {
 		this.x2 = x2;
 		this.y1 = y1;
 		this.y2 = y2;
+		identifier++;
+		System.out.println("Identifier: " + identifier);
 	}
 
 	public void draw(Graphics2D g) {
@@ -24,7 +34,7 @@ public abstract class MyShape {
 		height = Math.abs(this.y1 - this.y2);
 		startx = Math.min(this.x1, this.x2);
 		starty = Math.min(this.y1, this.y2);
-		g.setStroke(new BasicStroke(3));
+		//g.setStroke(new BasicStroke(3));
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
 				RenderingHints.VALUE_ANTIALIAS_ON);
 	}
@@ -68,5 +78,14 @@ public abstract class MyShape {
 
 	public void setY2(int y2) {
 		this.y2 = y2;
+	}
+	
+	public void setFillColor(Color color) {
+		// fill Ellipse2D.Double
+		fillcolor = color;
+	}
+	
+	public void setStrokeThickness(int thickness) {
+		strokethickness = new BasicStroke(thickness);
 	}
 }

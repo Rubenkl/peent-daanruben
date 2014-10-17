@@ -43,5 +43,9 @@ public class RightPanel extends JPanel {
 		}
         listModel.addElement(shape.type + " " + currcount);
     }
+    
+    public void deleteFromList(MyShape shape) {
+    	listModel.remove(shape.identifier-1);
+    }
 
 }

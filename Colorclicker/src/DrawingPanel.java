@@ -105,6 +105,7 @@ public class DrawingPanel extends JPanel {
 				break;
 			case "Delete":
 				if (getSelectedShape(end) != -1) {
+					rightPanel.deleteFromList(shapesList.get(getSelectedShape(end)));
 					shapesList.remove(getSelectedShape(end));
 				}
 				break;
@@ -127,7 +128,6 @@ public class DrawingPanel extends JPanel {
 			foundint = i;
 			break;
 		}
-			System.out.println(foundint);
 			return foundint;
 	}
 	

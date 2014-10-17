@@ -20,6 +20,9 @@ public class MyEllipse extends MyShape{
 		super.draw(g);
 		Ellipse2D.Double ellipse = new Ellipse2D.Double(startx, starty, width,
 				height);
+		g.setColor(fillcolor);
+		g.fill(ellipse);
+		g.setStroke(strokethickness);
 		g.draw(ellipse);
 	}
 
