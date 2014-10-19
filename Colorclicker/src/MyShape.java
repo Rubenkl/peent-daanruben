@@ -7,7 +7,7 @@ import java.awt.geom.Ellipse2D;
 
 public abstract class MyShape {
 
-	protected int identifier = 0;
+	protected int rightidentifier = -1;
 	protected int x1, y1, x2, y2;
 	protected int width, height, startx, starty;
 	protected BasicStroke strokethickness = new BasicStroke(3);
@@ -17,7 +17,6 @@ public abstract class MyShape {
 
 	public MyShape() {
 		this(0, 0, 0, 0);
-		identifier++;
 	}
 
 	public MyShape(int x1, int y1, int x2, int y2) {
@@ -25,8 +24,6 @@ public abstract class MyShape {
 		this.x2 = x2;
 		this.y1 = y1;
 		this.y2 = y2;
-		identifier++;
-		System.out.println("Identifier: " + identifier);
 	}
 
 	public void draw(Graphics2D g) {
@@ -82,10 +79,18 @@ public abstract class MyShape {
 	
 	public void setFillColor(Color color) {
 		// fill Ellipse2D.Double
-		fillcolor = color;
+		this.fillcolor = color;
 	}
 	
 	public void setStrokeThickness(int thickness) {
-		strokethickness = new BasicStroke(thickness);
+		this.strokethickness = new BasicStroke(thickness);
+	}
+	
+	public void setRightIdent(int identt) {
+		this.rightidentifier = identt;
+	}
+	
+	public int getRightIdent() {
+		return this.rightidentifier;
 	}
 }

@@ -42,10 +42,16 @@ public class RightPanel extends JPanel {
 				break;
 		}
         listModel.addElement(shape.type + " " + currcount);
+        shape.rightidentifier = listModel.size() - 1;
+        shape.setRightIdent(listModel.size()-1);
+        System.out.println("setted rightident to " + (listModel.size() -1));
+        System.out.println("Rightident now:" + shape.getRightIdent());
     }
     
     public void deleteFromList(MyShape shape) {
-    	listModel.remove(shape.identifier-1);
+    	System.out.println("tried to remove rightident: " + shape.getRightIdent());
+    	listModel.remove(shape.getRightIdent());
+    	
     }
 
 }
